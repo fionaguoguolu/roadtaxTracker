@@ -2,6 +2,12 @@ from model import Crud
 
 c = Crud()
 
+def column_title():
+    return ["Vehicle Number", "Expiry Date",
+            "Informed", "Inspected", "Renewed"]
+
+def checkboxes():
+    return ["Informed", "Inspected", "Renewed"]
 
 def add_new(vehicle, expiry):
     add_item = c.add_new(vehicle, expiry)
