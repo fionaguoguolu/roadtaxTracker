@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-from tkinter import Frame, Toplevel, Tk, Label, Scrollbar
+from tkinter import Frame, Label, Scrollbar, Tk, Toplevel
 from tkinter.constants import (ACTIVE, BOTH, CENTER, DISABLED, LEFT, NORMAL,
-                               RIGHT, TOP, W)
+                               RIGHT, TOP, E, N, S, W)
 from tkinter.font import Font, nametofont
 from tkinter.ttk import Style, Treeview
 
@@ -234,6 +234,10 @@ class Multicolumn_Listbox(Frame):
             treeview_kwargs["selectmode"] = select_mode
 
         self.interior = Treeview(master, columns=columns, **treeview_kwargs)
+
+        self.scrollbar = Scrollbar(master)
+        self.scrollbar.config(command=self.interior.yview)
+        self.interior.config(yscrollcommand=self.scrollbar.set)
 
         if command is not None:
             self._command = command
