@@ -2,7 +2,7 @@
 from tkinter import (BooleanVar, Button, Checkbutton, Entry, Frame, Label,
                      Scrollbar, Tk, Toplevel, messagebox)
 from tkinter.constants import (ACTIVE, BOTH, CENTER, DISABLED, LEFT, NORMAL,
-                               RIGHT, TOP, W)
+                               RIGHT, TOP, W, BOTTOM)
 
 from controller import (add_new, delete_item, show_within, sort_show_vehicle,
                         update_checks, column_title, checkboxes)
@@ -100,10 +100,9 @@ def show_info(msg):
 #     inputf.checkboxes[i].pack()
 
 
-# inputframe.pack(padx=30, pady=30, fill=BOTH)
 
 tableframe = Frame(root)
-tableframe.pack(padx=30, pady=30, fill=BOTH)
+tableframe.pack(padx=30, pady=30, fill=BOTH, side=BOTTOM)
 
 mc = Multicolumn_Listbox(tableframe, column_title(), stripped_rows=("white", "lavender"),
                         cell_anchor="center", height=20)
@@ -116,9 +115,6 @@ scrollbar.pack(fill=BOTH, side=RIGHT)
 mc.interior.config(yscrollcommand=scrollbar.set)
 mc.interior.pack()
 
-# entry = Entry(inputframe)
-# entry.insert(0, "30")
-# entry.focus_set()
 
 # mc.table_data = show_within(entry.get())
 
@@ -152,10 +148,9 @@ mc.interior.pack()
 
 to_edit = Button(root, text='Edit', command=SecWindow, width=15)
 to_edit.config(state=ACTIVE)
-
-
 to_edit.pack(side=TOP, anchor=W, padx=40)
-# entry.pack(side=LEFT)
+
+
 # send.pack(side=LEFT)
 # chkbox3.pack(side=RIGHT, anchor=W, pady=1, padx=1)
 # chkbox2.pack(side=RIGHT, anchor=W, pady=1, padx=1)

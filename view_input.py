@@ -6,8 +6,9 @@ from tkinter.constants import (ACTIVE, BOTH, CENTER, DISABLED, LEFT, NORMAL,
 
 
 class HeaderFrame(Frame):
-    def __init__(self, master, checkboxeslabel, title_text=None, input_text=None, 
-                font=None, data=None, command=None, background=None):
+    def __init__(self, master, checkboxeslabel, title_text=None,
+                 input_text=None, font=None, data=None, command=None,
+                 background=None):
 
         if title_text is not None:
             self._title_text = title_text
@@ -38,15 +39,17 @@ class HeaderFrame(Frame):
             Checkbutton(master, text=checkboxeslabel[i], 
                 variable=self._checkboxeslabel[i], bg=self._background)
 
-        self.title = Label(master, font=self._font, text=self._title_text, bg=self._background)
-        self.input_label = Label(master, text=self._input_text, bg=self._background)
+        self.title = Label(master, font=self._font, text=self._title_text,
+                           bg=self._background)
+        self.input_label = Label(master, text=self._input_text,
+                                 bg=self._background)
         self.entry = Entry(master)
+        self.entry.focus_set()
+        self.entry.insert(0, '30')
 
         self.title.pack(side=LEFT, padx=40)
+        self.entry.pack(side=LEFT)
         self.input_label.pack(fill=BOTH, side=LEFT)
-
-        # self.entry.insert()
-        self.entry.focus_set()
 
         if data is not None:
             self._data = data
@@ -67,7 +70,3 @@ class HeaderFrame(Frame):
         #         return checkboxes
 
         #     return vehicle, 
-
-
-
-    
